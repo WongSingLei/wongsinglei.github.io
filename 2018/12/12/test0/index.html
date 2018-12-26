@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="One&#39;s blog">
 <meta property="og:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 一、配置Github登录自己的Github账号，新建一个仓库，并命名为 用户名.github.io 二、配置环境1. 安装Git（如已安装可跳过），下载Git并安装。安装成功后，鼠标右击打开Git Bash（或者在菜单里搜索Git Bash），设置">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-15T08:56:07.525Z">
+<meta property="og:updated_time" content="2018-12-16T16:07:36.238Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub+Hexo 搭建个人博客">
 <meta name="twitter:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 一、配置Github登录自己的Github账号，新建一个仓库，并命名为 用户名.github.io 二、配置环境1. 安装Git（如已安装可跳过），下载Git并安装。安装成功后，鼠标右击打开Git Bash（或者在菜单里搜索Git Bash），设置">
@@ -300,12 +300,14 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成<strong>静态</strong>网页。</p>
 <h1 id="一、配置Github"><a href="#一、配置Github" class="headerlink" title="一、配置Github"></a>一、配置Github</h1><p>登录自己的Github账号，新建一个仓库，并命名为 <code>用户名.github.io</code></p>
 <h1 id="二、配置环境"><a href="#二、配置环境" class="headerlink" title="二、配置环境"></a>二、配置环境</h1><p><strong>1. 安装Git（如已安装可跳过），下载<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a>并安装。</strong><br>安装成功后，鼠标右击打开Git Bash（或者在菜单里搜索Git Bash），设置<code>user.name</code>和<code>user.email</code>配置信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的GitHub用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></p>
 <p>生成ssh密钥文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></p>
 <p>然后直接三个回车即可，默认不需要设置密码。<br>找到生成的<code>.ssh</code>的文件夹中的<code>id_rsa.pub</code>密钥，将内容全部复制<br>打开<a href="https://github.com/settings/keys" target="_blank" rel="noopener">GitHub_Settings_keys</a> 页面，新建<strong>new SSH Key</strong><br>Title为标题，任意填即可，将刚刚复制的<code>id_rsa.pub</code>内容粘贴进去，最后点击<code>Add SSH key</code>。<br>在Git Bash中检测GitHub公钥设置是否成功，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure></p>
+<blockquote>
 <p>设置GitHub密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在GitHub上，私钥放置在自己的电脑里。GitHub要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户。为了省去每次输入密码的步骤，采用了ssh，当你推送的时候，git就会匹配你的私钥跟GitHub上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
+</blockquote>
 <p><strong>2. 安装Node.js（如已安装可跳过），下载<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a>并安装。</strong><br>安装后，检测Node.js是否安装成功，在命令行中输入 <code>node -v</code>查看Node.js版本号。<br>检测npm是否安装成功，在命令行中输入<code>npm -v</code>查看npm版本号。<br>至此，安装Hexo的环境已经全部搭建完成。</p>
 <p><strong>3. 安装Hexo</strong><br>Hexo就是我们的个人博客网站的框架，这里需要自己在电脑常里创建一个文件夹，可以命名为Blog，Hexo框架与以后你自己发布的网页都在这个文件夹中。创建好后，在命令行中将路径改为该文件夹（当然也可以在随意目录下，之后会在该目录下创建博客根目录）。<br>使用npm命令安装Hexo，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
 <p>安装完成后，初始化我们的博客，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure></p>
