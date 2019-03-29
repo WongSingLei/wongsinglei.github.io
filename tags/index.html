@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="配置,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,14 @@
 
 
 
-<meta name="description" content="前提已安装Eclipse.  官网推荐的IDE有Spring Tool Suite（STS），这是一个基于Eclipse的IDE，因已经安装了Eclipse，故不再安装STS，采用在Eclipse上装插件的方式。  Eclipse安装TST插件打开Eclipse，选择help-&amp;gt;Eclipse marketplace，在marketplace的Search中搜索Spring tool sui">
-<meta name="keywords" content="配置">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Spring 环境搭建">
-<meta property="og:url" content="http://yoursite.com/2019/03/18/Spring环境搭建/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://yoursite.com/tags/index.html">
 <meta property="og:site_name" content="One&#39;s blog">
-<meta property="og:description" content="前提已安装Eclipse.  官网推荐的IDE有Spring Tool Suite（STS），这是一个基于Eclipse的IDE，因已经安装了Eclipse，故不再安装STS，采用在Eclipse上装插件的方式。  Eclipse安装TST插件打开Eclipse，选择help-&amp;gt;Eclipse marketplace，在marketplace的Search中搜索Spring tool sui">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-18T10:52:19.985Z">
+<meta property="og:updated_time" content="2019-03-29T11:46:37.298Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring 环境搭建">
-<meta name="twitter:description" content="前提已安装Eclipse.  官网推荐的IDE有Spring Tool Suite（STS），这是一个基于Eclipse的IDE，因已经安装了Eclipse，故不再安装STS，采用在Eclipse上装插件的方式。  Eclipse安装TST插件打开Eclipse，选择help-&amp;gt;Eclipse marketplace，在marketplace的Search中搜索Spring tool sui">
+<meta name="twitter:title" content="tags">
 
 
 
@@ -120,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/18/Spring环境搭建/">
+  <link rel="canonical" href="http://yoursite.com/tags/">
 
 
 
 
 
-  <title>Spring 环境搭建 | One's blog</title>
+  <title>tags | One's blog</title>
   
 
 
@@ -221,152 +217,40 @@
 
   <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/18/Spring环境搭建/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="WongSing Lei">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="One's blog">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">Spring 环境搭建</h1>
-        
+	<h1 class="post-title" itemprop="name headline">tags</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-18T18:22:13+08:00">
-                2019-03-18
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
-        <h1 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h1><p>已安装Eclipse.</p>
-<blockquote>
-<p>官网推荐的IDE有Spring Tool Suite（STS），这是一个基于Eclipse的IDE，因已经安装了Eclipse，故不再安装STS，采用在Eclipse上装插件的方式。</p>
-</blockquote>
-<h2 id="Eclipse安装TST插件"><a href="#Eclipse安装TST插件" class="headerlink" title="Eclipse安装TST插件"></a>Eclipse安装TST插件</h2><p>打开Eclipse，选择help-&gt;Eclipse marketplace，在marketplace的Search中搜索Spring tool suite，点击install。</p>
-<h2 id="下载并安装配置maven"><a href="#下载并安装配置maven" class="headerlink" title="下载并安装配置maven"></a>下载并安装配置maven</h2><p>下载地址是<a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a><br>下载Windows版本，<code>apache-maven-3.6.0-bin.zip</code><br>解压到自定义目录，添加环境变量。新建环境变量<code>MAVEN_HOME</code> ，变量值为：<strong>E:\Maven\apache-maven-3.6.0</strong></p>
-<p>编辑系统变量<code>Path</code>，添加变量值：<strong>;%MAVEN_HOME%\bin</strong></p>
-<p>配置maven仓库。进入apache-maven-3.6.0文件夹中，进入<code>conf</code>文件夹，会看到<code>setting.xml</code>文件，这是maven的配置文件。修改该文件。<br>找到<code>&lt;localRepository&gt;/path/to/local/repo&lt;/localRepository&gt;</code>，这是本地仓库的位置，修改成自己的文件夹。</p>
-<h2 id="在Eclipse中配置maven"><a href="#在Eclipse中配置maven" class="headerlink" title="在Eclipse中配置maven"></a>在Eclipse中配置maven</h2><p>打开Eclipse，选择Window-&gt;Preferences，在打开的配置页面中输入maven关键字进行搜索，在maven下找到<code>Installations</code>，点击<code>Add</code>按钮，选择maven的安装路径，点击<code>Apply</code>。<br>接着在maven下找到<code>User Settings</code>。User Settings有两个设置框，Global Settings（全局配置信息）和User Settings（只针对这个工作空间进行设置）。根据自己的实际情况设置相应的settings文件。点击User Settings后的Browse按钮，选择之前配置的maven的配置文件<code>settings.xml</code>，点击<code>Update Settings</code>按钮，再点击下面的<code>Apply</code>按钮。</p>
-
+      <div class="post-body">
+        
+        
+          <div class="tag-cloud">
+            <div class="tag-cloud-title">
+                1 tag in total
+            </div>
+            <div class="tag-cloud-tags">
+              <a href="/tags/配置/" style="font-size: 12px; color: #ccc">配置</a>
+            </div>
+          </div>
+        
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/配置/" rel="tag"># 配置</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/12/12/test0/" rel="next" title="GitHub+Hexo 搭建个人博客">
-                <i class="fa fa-chevron-left"></i> GitHub+Hexo 搭建个人博客
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
 
 
@@ -399,17 +283,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -469,22 +344,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前提"><span class="nav-number">1.</span> <span class="nav-text">前提</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Eclipse安装TST插件"><span class="nav-number">1.1.</span> <span class="nav-text">Eclipse安装TST插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载并安装配置maven"><span class="nav-number">1.2.</span> <span class="nav-text">下载并安装配置maven</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Eclipse中配置maven"><span class="nav-number">1.3.</span> <span class="nav-text">在Eclipse中配置maven</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
