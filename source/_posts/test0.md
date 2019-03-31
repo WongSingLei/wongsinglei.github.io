@@ -116,6 +116,8 @@ git push --set-upstream origin hexo
 ~~~
 移除themes目录下的Git管理文件.git/，否则无法将主题文件夹push
 
+在hexo文件夹下执行`npm install`和`npm install hexo-deployer-git`
+
 ### 发表文章
 新建Markdown文件并编辑
 ~~~
