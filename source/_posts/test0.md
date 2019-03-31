@@ -1,6 +1,6 @@
 ---
 title: GitHub Page + Hexo 搭建个人博客
-date: 
+date: 2018-12-12
 tags: 配置
 categories: 博客
 ---
