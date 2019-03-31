@@ -77,15 +77,70 @@ hexo d      //deploy部署发布
 2. 执行hexo deploy来更新托管静态网站的GitHub Pages (称之为Content Repo)
    
 ## 新建一个分支
-先新建一个hexo文件夹，作为分支的工作目录，用于保存将要备份的文件。
+>
+>在原有仓库新建分支，网上有些办法是新建一个Repo，再建两个分支
+### 创建分支目录
+先新建一个文件夹，作为分支的工作目录，用于保存将要备份的文件。
 再把GitHub上的Hexo仓库clone到hexo文件夹中
 删除除了.git文件夹的其他所有文件，主要是为了得到版本管理的.git。下面命令不会删除隐藏文件和文件夹
 ~~~
 rm -r *
 ~~~
+最后把需要备份的文件和文件夹都复制到hexo文件夹下，hexo的目录结构应该如下
+~~~
+scaffolds/
+source/
+themes/
+.git/
+.gitignore
+_config.yml
+package.json
+~~~
+
+#### 创建分支
 创建一个分支hexo
 ~~~
 git checkout -b hexo
+~~~
+保存所有文件到暂存区
+~~~
+git add -all
+~~~
+提交变更
+~~~
+git commit -m "创建hexo分支"
+~~~
+推送到GitHub，并与origin创建关联，将hexo设置为默认分支
+~~~
+git push --set-upstream origin hexo
+~~~
+移除themes目录下的Git管理文件.git/，否则无法将主题文件夹push
+
+### 发表文章
+新建Markdown文件并编辑
+~~~
+hexo new <file>
+~~~
+将相关更改推送到hexo分支
+~~~
+git add .
+git commit -m "发表文章"
+git push origin hexo
+~~~
+将静态文件推送到master分支
+~~~
+hexo g
+hexo d
+~~~
+
+### 迁移
+将hexo分支clone下来
+~~~
+git clone -b hexo <HTTP/SSH>
+~~~
+然后安装Hexo
+~~~
+npm install
 ~~~
 
 参考：
