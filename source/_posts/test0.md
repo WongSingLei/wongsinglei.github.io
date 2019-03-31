@@ -114,7 +114,7 @@ git commit -m "创建hexo分支"
 ~~~
 git push --set-upstream origin hexo
 ~~~
-移除themes目录下的Git管理文件.git/，否则无法将主题文件夹push
+移除themes目录下的Git管理文件`.git/`，否则无法将主题文件夹push
 
 在hexo文件夹下执行`npm install`和`npm install hexo-deployer-git`
 
@@ -134,6 +134,7 @@ git push origin hexo
 hexo g
 hexo d
 ~~~
+也可以使用`hexo g -d`一步搞定。
 
 ### 迁移
 将hexo分支clone下来
@@ -143,6 +144,7 @@ git clone -b hexo <HTTP/SSH>
 然后安装Hexo
 ~~~
 npm install
+npm install hexo-deployer-git
 ~~~
 
 参考：
