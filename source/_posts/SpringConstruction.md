@@ -15,8 +15,8 @@ categories: J2EE
 下载Windows版本，`apache-maven-3.6.0-bin.zip`
 解压到自定义目录，添加环境变量。新建环境变量`MAVEN_HOME` ，变量值为：**E:\Maven\apache-maven-3.6.0**
 编辑系统变量`Path`，添加变量值：**;%MAVEN_HOME%\bin**
-<!-- ![](maven.png) -->
-{% asset_img maven.png This is an example image %}
+![](maven.png)
+<!-- {% asset_img maven.png This is an example image %} -->
 
 配置maven仓库。进入apache-maven-3.6.0文件夹中，进入`conf`文件夹，会看到`setting.xml`文件，这是maven的配置文件。修改该文件。
 找到`<localRepository>/path/to/local/repo</localRepository>`，这是本地仓库的位置，修改成自己的文件夹。
