@@ -1,8 +1,9 @@
 ---
 title: Windows 10 + Visual Studio 2015 安装 OpenCV 3.4.0 + contrib
-date: 2019-04-05 10:33:53
-tags: 配置
+tags: [配置]
 categories: 计算机视觉
+date: 2019-04-05 10:33:53
+modified: 2019-04-05 12:37:56
 ---
 
 ## 下载 OpenCV 及 opencv_contrib

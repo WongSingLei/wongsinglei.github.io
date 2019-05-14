@@ -1,8 +1,9 @@
 ---
 title: Eclipse下搭建 Spring 开发环境
-date: 2019-03-14 19:21:02
-tags: 配置
+tags: [配置]
 categories: J2EE
+date: 2019-03-14 19:21:02
+modified: 2019-04-02 23:07:58
 ---
 
 > 官网推荐的IDE有Spring Tool Suite（STS），这是一个基于Eclipse的IDE，因已经我安装了Eclipse，故不再安装STS，而是采用在Eclipse上安装插件的方式。
