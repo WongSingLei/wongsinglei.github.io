@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":"ture","scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 一、博客搭建1、配置 Github登录自己的 Github 账号，新建一个仓库，并命名为 username.github.io 2、配置环境2.1. 安装 Git（如已安装可跳过），下载Git并安装。安装成功后，鼠标右击打开 Git Bash（或者">
+<meta name="keywords" content="配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Page + Hexo 搭建个人博客">
+<meta property="og:url" content="http://wongsinglei.github.io/2018/12/12/BuildBlog/index.html">
+<meta property="og:site_name" content="One&#39;s blog">
+<meta property="og:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 一、博客搭建1、配置 Github登录自己的 Github 账号，新建一个仓库，并命名为 username.github.io 2、配置环境2.1. 安装 Git（如已安装可跳过），下载Git并安装。安装成功后，鼠标右击打开 Git Bash（或者">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-13T08:23:48.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GitHub Page + Hexo 搭建个人博客">
+<meta name="twitter:description" content="前言Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 一、博客搭建1、配置 Github登录自己的 Github 账号，新建一个仓库，并命名为 username.github.io 2、配置环境2.1. 安装 Git（如已安装可跳过），下载Git并安装。安装成功后，鼠标右击打开 Git Bash（或者">
+
+
+
+
+
+
+  <link rel="canonical" href="http://wongsinglei.github.io/2018/12/12/BuildBlog/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GitHub Page + Hexo 搭建个人博客 | One's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">One's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wongsinglei.github.io/2018/12/12/BuildBlog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WongSing Lei">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikachu1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="One's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GitHub Page + Hexo 搭建个人博客
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-12 15:05:57" itemprop="dateCreated datePublished" datetime="2018-12-12T15:05:57+08:00">2018-12-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-13 16:23:48" itemprop="dateModified" datetime="2019-07-13T16:23:48+08:00">2019-07-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/博客/" itemprop="url" rel="index"><span itemprop="name">博客</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">11k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成<strong>静态</strong>网页。</p>
+<h1 id="一、博客搭建"><a href="#一、博客搭建" class="headerlink" title="一、博客搭建"></a>一、博客搭建</h1><h2 id="1、配置-Github"><a href="#1、配置-Github" class="headerlink" title="1、配置 Github"></a>1、配置 Github</h2><p>登录自己的 Github 账号，新建一个仓库，并命名为 <code>username.github.io</code></p>
+<h2 id="2、配置环境"><a href="#2、配置环境" class="headerlink" title="2、配置环境"></a>2、配置环境</h2><p><strong>2.1. 安装 Git（如已安装可跳过），下载<a href="https://git-scm.com/download/win" target="_blank" rel="noopener">Git</a>并安装。</strong><br>安装成功后，鼠标右击打开 Git Bash（或者在菜单里搜索 Git Bash），设置<code>user.name</code>和<code>user.email</code>配置信息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;你的 GitHub 用户名&quot;</span><br><span class="line">git config --global user.email &quot;你的 GitHub 注册邮箱&quot;</span><br></pre></td></tr></table></figure></p>
+<p>生成ssh密钥文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;你的GitHub注册邮箱&quot;</span><br></pre></td></tr></table></figure></p>
+<p>然后直接三个回车即可，默认不需要设置密码。<br>找到生成的<code>.ssh</code>的文件夹中的<code>id_rsa.pub</code>密钥，将内容全部复制<br>打开 <a href="https://github.com/settings/keys" target="_blank" rel="noopener">GitHub_Settings_keys</a> 页面，新建 <strong>new SSH Key</strong><br>Title 为标题，任意填即可，将刚刚复制的<code>id_rsa.pub</code>内容粘贴进去，最后点击<code>Add SSH key</code>。<br>在 Git Bash 中检测 GitHub 公钥设置是否成功，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh git@github.com</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>设置 GitHub 密钥原因是，通过非对称加密的公钥与私钥来完成加密，公钥放置在 GitHub 上，私钥放置在自己的电脑里。GitHub 要求每次推送代码都是合法用户，所以每次推送都需要输入账号密码验证推送用户是否是合法用户。为了省去每次输入密码的步骤，采用了 ssh，当你推送的时候，git 就会匹配你的私钥跟 GitHub 上面的公钥是否是配对的，若是匹配就认为你是合法用户，则允许推送。这样可以保证每次的推送都是正确合法的。</p>
+</blockquote>
+<p><strong>2.2. 安装 Node.js（如已安装可跳过），下载 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Node.js</a> 并安装。</strong><br>安装后，检测 Node.js 是否安装成功，在命令行中输入 <code>node -v</code>查看 Node.js 版本号。<br>检测 npm 是否安装成功，在命令行中输入<code>npm -v</code>查看npm版本号。<br>至此，安装 Hexo 的环境已经全部搭建完成。</p>
+<p><strong>2.3. 安装 Hexo</strong><br>Hexo 就是个人博客网站的框架，这里需要自己在电脑常里创建一个文件夹，Hexo 框架与以后你自己发布的网页都在这个文件夹中。创建好后，在命令行中将路径改为该文件夹（当然也可以在随意目录下，之后会在该目录下创建博客根目录）。<br>使用 npm 命令安装 Hexo，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后，初始化博客，输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure></p>
+<p>命令执行后会创建文件夹 blog，之后更改路径为 blog。</p>
+<h2 id="3、部署网站"><a href="#3、部署网站" class="headerlink" title="3、部署网站"></a>3、部署网站</h2><p>安装 Git 部署插件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>打开站点目录下的配置文件<code>_config.yml</code>，翻到最后修改为(注意：最后三行冒号后面需要一个空格)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/username/username.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>渲染生成和部署<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  //清除缓存，网页正常情况下可以忽略此命令</span><br><span class="line">hexo g      //generate 生成</span><br><span class="line">hexo d      //deploy 部署发布</span><br></pre></td></tr></table></figure></p>
+<h2 id="4、查看效果"><a href="#4、查看效果" class="headerlink" title="4、查看效果"></a>4、查看效果</h2><ol>
+<li>直接打开自己的博客网站，因为延迟也许不能即时看到最新的修改。</li>
+<li>在cmd中输入 <code>hexo server</code>(或<code>hexo s</code>)，接着在浏览器输入 <strong><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></strong> 即可及时查看修改效果。</li>
+</ol>
+<h1 id="二、博客备份"><a href="#二、博客备份" class="headerlink" title="二、博客备份"></a>二、博客备份</h1><blockquote>
+<p>备份原因：部署上去的，即发布到 GitHub 的都是编译后的文件，如 <code>html、css，js</code>等文件，但是自己写的<code>.md</code> 文章实际是没有上传至 GitHub 的，如果需要备份这些源文件，该怎么备份呢？或者换了别的电脑又该怎样更新博客呢？</p>
+</blockquote>
+<p>一般来说，使用 GitHub 仓库备份博客，存在两种方案：新建一个分支；新建另一个仓库。因为笔者之前没有考虑到备份问题，因此已经在 GitHub 上创建了一个 Repo ，所以采用新建分支的方式。</p>
+<p>将博客源文件 host 在 GitHub 上后，发布流程就会变为：</p>
+<ol>
+<li>执行 git push 把更新的源文件 push 到托管源文件的 GitHub Repo (称之为 Source Repo)</li>
+<li>执行 hexo deploy 来更新托管静态网站的 GitHub Pages (称之为 Content Repo)</li>
+</ol>
+<h2 id="新建一个分支（hexo）"><a href="#新建一个分支（hexo）" class="headerlink" title="新建一个分支（hexo）"></a>新建一个分支（hexo）</h2><blockquote>
+<p>关于新建分支的方式，网上的另一种办法是新建一个 Repo，再建两个分支，再把 hexo 分支 clone 下来。然后把需要备份的文件和文件夹复制到 hexo 文件夹下。然而新建的 Repo 也必须命名为<code>username.github.io</code>，会与之前 Repo 冲突，所以还得改之前 Repo 的名字。<br>笔者采用的是先 clone 已有 Repo：<code>username.github.io</code>，再删除不必要的文件（仅保留版本控制<code>.git</code>文件夹），然后把需要备份的文件和文件夹复制到 hexo 文件夹下。接着再建 hexo 分支。</p>
+</blockquote>
+<h3 id="创建分支目录"><a href="#创建分支目录" class="headerlink" title="创建分支目录"></a>创建分支目录</h3><ol>
+<li>先新建一个文件夹，作为分支的工作目录，用于保存将要备份的文件。</li>
+<li>再把 GitHub 上的 Hexo 仓库 clone 到当前文件夹中。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;url&gt; hexo</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>因为在 URL 后添加了 <code>hexo</code>，所以会创建 hexo 文件夹。当然不添加也行，这样创建的文件夹应该是 <code>username.git.io</code>。</p>
+<ol start="3">
+<li><p>接着删除除了 .git 文件夹的其他所有文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -r *</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后把需要备份的文件和文件夹（scaffolds/，source/，themes/，.gitignore，<br>_config.yml，package.json）都复制到 hexo 文件夹下，复制后 hexo 的目录结构应该如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scaffolds/</span><br><span class="line">source/</span><br><span class="line">themes/</span><br><span class="line">.git/</span><br><span class="line">.gitignore</span><br><span class="line">_config.yml</span><br><span class="line">package.json</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="创建分支并配置环境"><a href="#创建分支并配置环境" class="headerlink" title="创建分支并配置环境"></a>创建分支并配置环境</h4><p>创建一个分支 hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b hexo</span><br></pre></td></tr></table></figure></p>
+<p>保存所有文件到暂存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add -all</span><br></pre></td></tr></table></figure></p>
+<p>提交变更<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;创建hexo分支&quot;</span><br></pre></td></tr></table></figure></p>
+<p>推送到 GitHub，并与 origi n创建关联，将 hexo 设置为默认分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream origin hexo</span><br></pre></td></tr></table></figure></p>
+<p>移除 themes 目录下的 Git 管理文件<code>.git/</code>，否则无法将主题文件夹 push。</p>
+<p>在hexo文件夹下执行<code>npm install</code>和<code>npm install hexo-deployer-git</code>。</p>
+<h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>新建 Markdown 文件并编辑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new &lt;file&gt;</span><br></pre></td></tr></table></figure></p>
+<p>将相关更改推送到 hexo 分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;发表文章&quot;</span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure></p>
+<p>将静态文件推送到 master 分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure></p>
+<p>也可以使用<code>hexo g -d</code>命令一步搞定。</p>
+<h3 id="迁移"><a href="#迁移" class="headerlink" title="迁移"></a>迁移</h3><p>将 hexo 分支 clone 下来<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone -b hexo &lt;HTTP/SSH&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后安装 Hexo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br><span class="line">npm install hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
+<p>参考：</p>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/26625249</a></li>
+<li><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">https://hexo.io/zh-cn/</a></li>
+<li><a href="https://www.makcyun.top/hexo02.html" target="_blank" rel="noopener">https://www.makcyun.top/hexo02.html</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>WongSing Lei</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://wongsinglei.github.io/2018/12/12/BuildBlog/" title="GitHub Page + Hexo 搭建个人博客">http://wongsinglei.github.io/2018/12/12/BuildBlog/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/配置/" rel="tag"><i class="fa fa-tag"></i> 配置</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/14/SpringConstruction/" rel="prev" title="Eclipse下搭建 Spring 开发环境">
+                Eclipse下搭建 Spring 开发环境 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/pikachu1.jpeg" alt="WongSing Lei">
+            
+              <p class="site-author-name" itemprop="name">WongSing Lei</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、博客搭建"><span class="nav-number">2.</span> <span class="nav-text">一、博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、配置-Github"><span class="nav-number">2.1.</span> <span class="nav-text">1、配置 Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、配置环境"><span class="nav-number">2.2.</span> <span class="nav-text">2、配置环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、部署网站"><span class="nav-number">2.3.</span> <span class="nav-text">3、部署网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、查看效果"><span class="nav-number">2.4.</span> <span class="nav-text">4、查看效果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、博客备份"><span class="nav-number">3.</span> <span class="nav-text">二、博客备份</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建一个分支（hexo）"><span class="nav-number">3.1.</span> <span class="nav-text">新建一个分支（hexo）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建分支目录"><span class="nav-number">3.1.1.</span> <span class="nav-text">创建分支目录</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建分支并配置环境"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">创建分支并配置环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发表文章"><span class="nav-number">3.1.2.</span> <span class="nav-text">发表文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#迁移"><span class="nav-number">3.1.3.</span> <span class="nav-text">迁移</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WongSing Lei</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">8k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">7 分钟</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>

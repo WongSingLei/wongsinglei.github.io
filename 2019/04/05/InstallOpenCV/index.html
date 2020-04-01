@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":"ture","scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="下载 OpenCV 及 opencv_contrib下载 OpenCV，并下载对应版本的 contrib。对于 Windows，可以下载 Win pack 的 .exe 文件进行安装。安装后 OpenCV 后，解压 opencv_contrib-3.4.0，并创建一个 build 文件夹（也可以叫其他名字）用于存放之后编译的内容。注意： contrib 的版本必须与 OpenCV 对应。本文以 O">
+<meta name="keywords" content="配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows 10 + Visual Studio 2015 安装 OpenCV 3.4.0 + contrib">
+<meta property="og:url" content="http://wongsinglei.github.io/2019/04/05/InstallOpenCV/index.html">
+<meta property="og:site_name" content="One&#39;s blog">
+<meta property="og:description" content="下载 OpenCV 及 opencv_contrib下载 OpenCV，并下载对应版本的 contrib。对于 Windows，可以下载 Win pack 的 .exe 文件进行安装。安装后 OpenCV 后，解压 opencv_contrib-3.4.0，并创建一个 build 文件夹（也可以叫其他名字）用于存放之后编译的内容。注意： contrib 的版本必须与 OpenCV 对应。本文以 O">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://wongsinglei.github.io/2019/04/05/InstallOpenCV/04/05/InstallOpenCV/cmake1.jpg">
+<meta property="og:updated_time" content="2019-07-13T08:23:48.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Windows 10 + Visual Studio 2015 安装 OpenCV 3.4.0 + contrib">
+<meta name="twitter:description" content="下载 OpenCV 及 opencv_contrib下载 OpenCV，并下载对应版本的 contrib。对于 Windows，可以下载 Win pack 的 .exe 文件进行安装。安装后 OpenCV 后，解压 opencv_contrib-3.4.0，并创建一个 build 文件夹（也可以叫其他名字）用于存放之后编译的内容。注意： contrib 的版本必须与 OpenCV 对应。本文以 O">
+<meta name="twitter:image" content="http://wongsinglei.github.io/2019/04/05/InstallOpenCV/04/05/InstallOpenCV/cmake1.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://wongsinglei.github.io/2019/04/05/InstallOpenCV/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Windows 10 + Visual Studio 2015 安装 OpenCV 3.4.0 + contrib | One's blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">One's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://wongsinglei.github.io/2019/04/05/InstallOpenCV/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="WongSing Lei">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/pikachu1.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="One's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Windows 10 + Visual Studio 2015 安装 OpenCV 3.4.0 + contrib
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-05 10:33:53" itemprop="dateCreated datePublished" datetime="2019-04-05T10:33:53+08:00">2019-04-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-13 16:23:48" itemprop="dateModified" datetime="2019-07-13T16:23:48+08:00">2019-07-13</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/计算机视觉/" itemprop="url" rel="index"><span itemprop="name">计算机视觉</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="下载-OpenCV-及-opencv-contrib"><a href="#下载-OpenCV-及-opencv-contrib" class="headerlink" title="下载 OpenCV 及 opencv_contrib"></a>下载 OpenCV 及 opencv_contrib</h2><p>下载 <a href="https://opencv.org/releases.html" target="_blank" rel="noopener">OpenCV</a>，并下载对应版本的 <a href="https://github.com/opencv/opencv_contrib/releases" target="_blank" rel="noopener">contrib</a>。对于 Windows，可以下载 <code>Win pack</code> 的 <code>.exe</code> 文件进行安装。安装后 OpenCV 后，解压 opencv_contrib-3.4.0，并创建一个 build 文件夹（也可以叫其他名字）用于存放之后编译的内容。<strong>注意</strong>： contrib 的版本必须与 OpenCV 对应。本文以 OpenCV 3.4.0 为例，OpenCV 安装于 <code>E:\Program Files\opencv340</code>，opencv_contrib 也解压于该目录下。该目录文件结构如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">|</span><br><span class="line">--- build	// 编译文件夹</span><br><span class="line">|</span><br><span class="line">--- opencv	// OpenCV 文件夹</span><br><span class="line">|</span><br><span class="line">--- opencv_contrib-3.4.0	// contrib 文件夹</span><br></pre></td></tr></table></figure></p>
+<h2 id="下载安装CMake"><a href="#下载安装CMake" class="headerlink" title="下载安装CMake"></a>下载安装CMake</h2><p>下载 <a href="https://github.com/Kitware/CMake/releases" target="_blank" rel="noopener">CMake</a>，如果已经安装过 CMake，可以跳过这一步。笔者使用的是 CMake 3.10.0 ，之前使用 CMake 3.11.1 时总是 Configure 和 Generate 正常，而使用 VS 编译时失败。故如果编译失败不妨试试更换 CMake 版本。</p>
+<h2 id="编译-OpenCV"><a href="#编译-OpenCV" class="headerlink" title="编译 OpenCV"></a>编译 OpenCV</h2><p>打开 CMake，选择 OpenCV 文件夹和 build 文件夹。</p>
+<img src="/2019/04/05/InstallOpenCV/04/05/InstallOpenCV/cmake1.jpg" title="CMake">
+<p>点击 <code>Configure</code> ，选择 <code>Visual Studio 14 2015 Win64</code> 作为生成器。并勾选 <code>BUILD_opencv_world</code> ，如果没有勾选这个选项，之后会编译出多个 lib 文件，添加链接库时会比较麻烦。在 <code>OPENCV_EXTRA_MODULES_PATH</code> 添加 contrib 的路径。再次点击 <code>Configure</code>，如果没有标红点击 <code>Generate</code>，Generate done 后点击 <code>Open Project</code>，或者直接在 build 文件夹下，打开 <code>OpenCV.slh</code>。</p>
+<p>在 VS 2015 下生成解决方案（可以使用快捷键 Ctrl + Shift + B），然后漫长的编译开始了。编译时间视配置而定，笔者因为环境较复杂，需要编译的组件较多，编译了一个多小时。然后在解决方案资源管理器中的 CMakeTargets 下的 INSTALL 右键下选择仅用于项目，仅生成 INSTALL。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>编译结束后，就该进行项目配置了。在上述操作后，在 build 文件夹下会生成一系列文件及文件夹，较为重要的是 install 文件夹。其中重要的文件结构如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">|</span><br><span class="line">--- include</span><br><span class="line">	|</span><br><span class="line">	--- opencv</span><br><span class="line">	|</span><br><span class="line">	--- opencv2</span><br><span class="line">|</span><br><span class="line">--- x64</span><br><span class="line">	|</span><br><span class="line">	--- vc14</span><br><span class="line">		|</span><br><span class="line">		--- bin	// PATH 环境变量路径，dll 文件路径</span><br><span class="line">		|</span><br><span class="line">		--- lib</span><br></pre></td></tr></table></figure>
+<p>先在环境变量 <strong>PATH</strong> 中添加 <code>E:\Program Files\opencv340\build\install\x64\vc14\bin</code>，然后在 VS 2015 中新建一个空的 Win32 控制台应用程序，在属性管理器中的 <strong>Debug | 64</strong> 下双击 <code>Microsoft.Cpp.x64.user</code>，打开属性页。在 VC++ 目录选择<strong>包含目录</strong>添加</p>
+<p>E:\Program Files\opencv340\build\install\include</p>
+<p>E:\Program Files\opencv340\build\install\include\opencv</p>
+<p>E:\Program Files\opencv340\build\install\include\opencv2</p>
+<p>在<strong>库目录</strong>添加</p>
+<p>E:\Program Files\opencv340\build\install\x64\vc14\lib</p>
+<p>然后选择链接器，输入，附加依赖项，添加 </p>
+<p>opencv_world340d.lib</p>
+<p>配置完成。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>WongSing Lei</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://wongsinglei.github.io/2019/04/05/InstallOpenCV/" title="Windows 10 + Visual Studio 2015 安装 OpenCV 3.4.0 + contrib">http://wongsinglei.github.io/2019/04/05/InstallOpenCV/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/配置/" rel="tag"><i class="fa fa-tag"></i> 配置</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/14/SpringConstruction/" rel="next" title="Eclipse下搭建 Spring 开发环境">
+                <i class="fa fa-chevron-left"></i> Eclipse下搭建 Spring 开发环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/17/win-mysql8-resetpw/" rel="prev" title="Windows MySQL 8.0.11 忘记密码处理">
+                Windows MySQL 8.0.11 忘记密码处理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/pikachu1.jpeg" alt="WongSing Lei">
+            
+              <p class="site-author-name" itemprop="name">WongSing Lei</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载-OpenCV-及-opencv-contrib"><span class="nav-number">1.</span> <span class="nav-text">下载 OpenCV 及 opencv_contrib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载安装CMake"><span class="nav-number">2.</span> <span class="nav-text">下载安装CMake</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译-OpenCV"><span class="nav-number">3.</span> <span class="nav-text">编译 OpenCV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">WongSing Lei</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">8k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">7 分钟</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
