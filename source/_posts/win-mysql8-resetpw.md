@@ -3,7 +3,7 @@ title: Windows MySQL 8.0.11 忘记密码处理
 comment: true
 date: 2019-05-17 21:14:11
 updated: 2019-05-17 21:14:11
-categories: MySQL
+categories: [数据库, MySQL]
 tags:
 ---
 
